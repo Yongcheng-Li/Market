@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/backgroundimage.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/ic_baseline_home_work_24.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_admin.xml" value="0.17603850050658562" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_all_traders_menu.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_approve_admin.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_browse_trades.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_change_homecity.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_deliver_trade_detail.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_deliver_trades.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_edit_inventory.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_edit_trade.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_get_location.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_in_delivery.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_login.xml" value="0.17603850050658562" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_request_admin.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_signup.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_trader.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/activity_tutorial.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Yongcheng Li/AndroidStudioProjects/TradingSystem-SchoolProject-master/TradingSystem-SchoolProject-master/app/src/main/res/layout/fragment_info.xml" value="0.36614583333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="NullableNotNullManager">
+    <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
+    <option name="myDefaultNotNull" value="androidx.annotation.RecentlyNonNull" />
+    <option name="myNullables">
+      <value>
+        <list size="13">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
+          <item index="2" class="java.lang.String" itemvalue="javax.annotation.CheckForNull" />
+          <item index="3" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
+          <item index="4" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
+          <item index="5" class="java.lang.String" itemvalue="androidx.annotation.Nullable" />
+          <item index="6" class="java.lang.String" itemvalue="android.annotation.Nullable" />
+          <item index="7" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNullable" />
+          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.Nullable" />
+          <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableDecl" />
+          <item index="10" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableType" />
+          <item index="11" class="java.lang.String" itemvalue="com.android.annotations.Nullable" />
+          <item index="12" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.Nullable" />
+        </list>
+      </value>
+    </option>
+    <option name="myNotNulls">
+      <value>
+        <list size="12">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
+          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
+          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
+          <item index="4" class="java.lang.String" itemvalue="androidx.annotation.NonNull" />
+          <item index="5" class="java.lang.String" itemvalue="android.annotation.NonNull" />
+          <item index="6" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNonNull" />
+          <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
+          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullDecl" />
+          <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullType" />
+          <item index="10" class="java.lang.String" itemvalue="com.android.annotations.NonNull" />
+          <item index="11" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.NonNull" />
+        </list>
+      </value>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
