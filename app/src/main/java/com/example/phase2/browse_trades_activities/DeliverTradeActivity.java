@@ -86,7 +86,8 @@ public class DeliverTradeActivity extends UpdatableBundleActivity implements Dia
         String tempDate = "Date: " + meetingManager.getMeetingDate(trade);
         TextView meetingDate = findViewById(R.id.meetingDate);
         meetingDate.setText(tempDate);
-        String tempLocation = "Location: " + meetingManager.getMeetingLocation(trade);
+        String tempLocation = "Location: " + traderManager.getHomeCity(itemManager.getItemOwner(tradeManager.getItems(trade).get(0)))
+                                + " ~ " + traderManager.getHomeCity(itemManager.getItemOwner(tradeManager.getItems(trade).get(1)));
         TextView meetingLocation = findViewById(R.id.meetingInformation);
         meetingLocation.setText(tempLocation);
 
@@ -113,11 +114,11 @@ public class DeliverTradeActivity extends UpdatableBundleActivity implements Dia
     }
 
     //Having issues currently unused
-    public void displayDelivery(){
-        Intent intent = new Intent(this, UnderDelivery.class);
-        //intent.putExtra("Trade", trade);
-        startActivityForResult(intent, RESULT_FIRST_USER);
-    }
+//    public void displayDelivery(){
+//        Intent intent = new Intent(this, UnderDelivery.class);
+//        //intent.putExtra("Trade", trade);
+//        startActivityForResult(intent, RESULT_FIRST_USER);
+//    }
 
     private void updateDialogs(){
         if(tradeManager.getTradeType(trade).contains("ONEWAY")){

@@ -133,21 +133,6 @@ public class ConfigGateway {
         adminActions = new AdminActions(admins);
 
         traderManager = new TraderManager(new HashMap<String, Trader>(), 100, 1, 0);
-        Trader trader1 = new Trader("Trader1", "Password");
-        trader1.setHomeCity("Fredericton");
-        traderManager.addTrader(trader1);
-
-        traderManager.addTrader(new Trader("Trader2", "Password2"));
-        Trader traderFlagged = new Trader("Arjun", "Password3");
-        traderFlagged.setHomeCity("Saint John");
-        traderFlagged.setFlagged(true);
-
-        traderManager.addTrader(traderFlagged);
-        Trader traderUnfreeze = new Trader("Jeffrey", "Password4");
-        traderUnfreeze.setFrozen(true);
-        traderUnfreeze.setRequestToUnfreeze(true);
-        traderManager.addTrader(traderUnfreeze);
-
 
         traderManager.addTrader(new Trader("Li", "123456"));
         traderManager.addTrader(new Trader("Yong", "123456"));
@@ -158,13 +143,13 @@ public class ConfigGateway {
         HashMap<Integer, Item> tempMap = new HashMap<>();
         itemManager = new ItemManager(tempMap);
 
-        Integer id1 = itemManager.addItem("Bruh", "Arjun");
+        Integer id1 = itemManager.addItem("Bomb", "Cheng");
         itemManager.editCategory(id1, "What do you think?");
-        itemManager.editDescription(id1, "bruhbruhbruh");
+        itemManager.editDescription(id1, "boom");
         itemManager.editQualityRating(id1,5);
         itemManager.changeStatusToAvailable(id1);
 
-        Integer id2 = itemManager.addItem("Apple", "Trader1");
+        Integer id2 = itemManager.addItem("Apple", "Yong");
         itemManager.editCategory(id2, "Food");
         itemManager.editDescription(id2, "It's an apple.");
         itemManager.editQualityRating(id2, 8);
