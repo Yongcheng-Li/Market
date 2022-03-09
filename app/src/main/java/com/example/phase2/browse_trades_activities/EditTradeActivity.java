@@ -221,6 +221,9 @@ public class EditTradeActivity extends UpdatableBundleActivity implements Dialog
         if(meetingManager.bothAgreed(trade)){
             LinearLayout linearLayout = findViewById(R.id.agreeOrEditButtons);
             linearLayout.setVisibility(View.GONE);
+            if(tradeManager.getTradeType(trade).contains("ONLINE")) {
+                Toast.makeText(EditTradeActivity.this, "Trade agreed, wait to be delivered", Toast.LENGTH_LONG).show();
+            }
             Button button = findViewById(R.id.confirmButton);
             button.setVisibility(View.VISIBLE);
             updateCurTraderMeetingStatus();

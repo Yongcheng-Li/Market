@@ -65,13 +65,8 @@ public class EditMeetingActivity extends BundleActivity {
         replaceUseCase(meetingManager);
         super.onBackPressed();
     }
-    //Some of the code here was used from the following source:
-    /*
-    Author: Coding with Mitch
-    Date: August 5th 2020
-    Title: Android Beginner Tutorial #25 - DatePicker Dialog
-    Web Address:https://www.youtube.com/watch?v=hwe1abDO2Ag
-     */
+
+
     private void setDatePickerText(final TextView datePickerText){
         datePickerText.setOnClickListener(new View.OnClickListener() {
               @Override

@@ -71,7 +71,7 @@
     <string name="invalid_date_edit">Please enter a valid date</string>
     <string name="invalid_date_location">Please enter valid information</string>
     <string name="return_meeting_popup">Return meeting information updated.</string>
-    <string name="trade_completed">Trade Completed.</string>
+    <string name="trade_completed">Trade Completed, thanks for using Market ^_^</string>
     <string name="proposedItems">Proposed Items</string>
     <string name="proposedItemsDescription">Please click on the item you want to approve/reject</string>
     <string name="itemChoiceMenu">Please choose what you would like to do with this item:</string>

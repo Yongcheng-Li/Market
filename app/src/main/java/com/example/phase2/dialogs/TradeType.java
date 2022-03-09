@@ -22,7 +22,7 @@ public class TradeType  extends AppCompatDialogFragment {
     private Dialogable dialogable;
     protected final String[] ways = {"One way", "Two way"};
     protected final String[] status = {"Permanent", "Temporary"};
-    protected final String[] meetingPlace = {"Delivery", "In person"};
+    protected final String[] meetingPlace = {"Online-Delivery", "In person"};
     private Boolean isOneWay;
     private Boolean isPermanent;
     private Boolean isOnline;

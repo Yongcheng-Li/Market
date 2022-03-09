@@ -253,9 +253,9 @@ public class Meeting implements Serializable {
      * Getter for lastReturnLocation
      * @return the Meeting's last return location
      */
-    public String getLastReturnLocation() {
-        return lastReturnLocation;
-    }
+//    public String getLastReturnLocation() {
+//        return lastReturnLocation;
+//    }
 
     /**Getter for returnDate
      * @return the return meeting's date
@@ -276,9 +276,9 @@ public class Meeting implements Serializable {
      * Getter for the last return date.
      * @return This meeting's last return date.
      */
-    public LocalDate getLastReturnDate() {
-        return lastReturnDate;
-    }
+//    public LocalDate getLastReturnDate() {
+//        return lastReturnDate;
+//    }
 
     /**
      * Getter for if the meeting is permanent or not

@@ -129,17 +129,17 @@ public class ConfigGateway {
 
     private void downloadUsers(){
         HashMap<String, Admin> admins = new HashMap<>();
-        admins.put("Admin", new Admin("Admin", "Wordpass", "2020-07-27", true));
+        admins.put("Admin", new Admin("Admin", "Wordpass", "2022-03-09", true));
         adminActions = new AdminActions(admins);
 
         traderManager = new TraderManager(new HashMap<String, Trader>(), 100, 1, 0);
         Trader trader1 = new Trader("Trader1", "Password");
-        trader1.setHomeCity("Brampton");
+        trader1.setHomeCity("Fredericton");
         traderManager.addTrader(trader1);
 
         traderManager.addTrader(new Trader("Trader2", "Password2"));
         Trader traderFlagged = new Trader("Arjun", "Password3");
-        traderFlagged.setHomeCity("Toronto");
+        traderFlagged.setHomeCity("Saint John");
         traderFlagged.setFlagged(true);
 
         traderManager.addTrader(traderFlagged);
@@ -149,8 +149,9 @@ public class ConfigGateway {
         traderManager.addTrader(traderUnfreeze);
 
 
-        adminActions.newAdmin("Admin2", "Wordpass");
-        adminActions.newAdmin("Sup", "nothing");
+        traderManager.addTrader(new Trader("Li", "123456"));
+        traderManager.addTrader(new Trader("Yong", "123456"));
+        traderManager.addTrader(new Trader("Cheng", "123456"));
     }
 
     private void downloadItems(){
@@ -170,117 +171,10 @@ public class ConfigGateway {
         itemManager.changeStatusToAvailable(id2);
     }
 
-    private void addFirstTrade(){
-        meetingManager = new MeetingManager(new HashMap<Integer, Meeting>());
-        tradeManager = new TradeManager(new HashMap<Integer, Trade>());
-        List<Integer> tempTradeItems = new ArrayList<>();
-        tempTradeItems.add(itemManager.addItem("Bike", "Arjun"));
-        itemManager.addItemDetails(tempTradeItems.get(0), "Transportation", "Its a bike", 10);
-        itemManager.changeStatusToUnavailable(tempTradeItems.get(0));
-        Integer tradeId = tradeManager.createTrade("Arjun", "Trader2", "ONEWAY", true, tempTradeItems);
-        LocalDate tempDate = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId,tempDate);
-        traderManager.addNewTrade("Trader2", tradeId, tempDate);
-        meetingManager.createMeeting(tradeId, "Arjun", "Trader2", true);
-        meetingManager.setMeetingInfo(tradeId, LocalDate.now(), LocalDate.now(),
-                "Toronto", "Toronto");
-    }
 
-    private void addSecondTrade(){
-        List<Integer> tempTradeItems2 = new ArrayList<>();
-        Integer temp2 = itemManager.addItem("Jacket", "Trader2");
-        Integer temp3 = itemManager.addItem("Watch", "Arjun");
-        tempTradeItems2.add(temp2);
-        tempTradeItems2.add(temp3);
-        itemManager.addItemDetails(temp2, "Clothing", "Its a jacket", 7);
-        itemManager.addItemDetails(temp3, "Accessories", "Its a watch", 5);
-        itemManager.changeStatusToUnavailable(temp2);
-        itemManager.changeStatusToUnavailable(temp3);
-        Integer tradeId2 = tradeManager.createTrade("Arjun", "Trader2", "TWOWAY", true, tempTradeItems2);
-        LocalDate tempDate2 = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId2,tempDate2);
-        traderManager.addNewTrade("Trader2", tradeId2, tempDate2);
-        meetingManager.createMeeting(tradeId2, "Arjun", "Trader2", true);
-        meetingManager.setMeetingInfo(tradeId2, LocalDate.now(), LocalDate.now(),
-                "Toronto", "Toronto");
-    }
-
-    private void addThirdTrade(){
-        List<Integer> tempTradeItems3 = new ArrayList<>();
-        tempTradeItems3.add(itemManager.addItem("Light", "Arjun"));
-        itemManager.addItemDetails(tempTradeItems3.get(0), "Home", "Its a light", 10);
-        itemManager.changeStatusToUnavailable(tempTradeItems3.get(0));
-        Integer tradeId3 = tradeManager.createTrade("Arjun", "Trader1", "ONEWAY", false, tempTradeItems3);
-        LocalDate tempDate3 = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId3,tempDate3);
-        traderManager.addNewTrade("Trader1", tradeId3, tempDate3);
-        meetingManager.createMeeting(tradeId3, "Arjun", "Trader1", false);
-        meetingManager.setMeetingInfo(tradeId3, LocalDate.now(), LocalDate.now(),
-                "Toronto", "N/A");
-    }
-
-    private void addFourthTrade(){
-        List<Integer> tempTradeItems4 = new ArrayList<>();
-        Integer temp6 = itemManager.addItem("Laptop", "Trader1");
-        Integer temp7 = itemManager.addItem("Phone", "Arjun");
-        tempTradeItems4.add(temp6);
-        tempTradeItems4.add(temp7);
-        itemManager.addItemDetails(temp6, "Technology", "Its a laptop", 7);
-        itemManager.addItemDetails(temp7, "Technology", "Its a Phone", 5);
-        itemManager.changeStatusToUnavailable(temp6);
-        itemManager.changeStatusToUnavailable(temp7);
-        Integer tradeId4 = tradeManager.createTrade("Arjun", "Trader1", "TWOWAY", false, tempTradeItems4);
-        LocalDate tempDate4 = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId4,tempDate4);
-        traderManager.addNewTrade("Trader1", tradeId4, tempDate4);
-        meetingManager.createMeeting(tradeId4, "Arjun", "Trader1", false);
-        meetingManager.setMeetingInfo(tradeId4, LocalDate.now(), LocalDate.now(),
-                "Toronto", "N/A");
-    }
-
-    private void addFifthTrade(){
-        List<Integer> tempTradeItems5 = new ArrayList<>();
-        Integer temp8 = itemManager.addItem("E-Book", "Trader1");
-        tempTradeItems5.add(temp8);
-        itemManager.changeStatusToUnavailable(temp8);
-        itemManager.addItemDetails(temp8, "Online", "Its an ebook", 10);
-        Integer tradeId5 = tradeManager.createTrade("Arjun", "Trader1", "ONLINE-ONEWAY", true, tempTradeItems5);
-        LocalDate tempDate5 = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId5,tempDate5);
-        traderManager.addNewTrade("Trader1", tradeId5, tempDate5);
-        meetingManager.createMeeting(tradeId5, "Arjun", "Trader1", true);
-        meetingManager.setMeetingInfo(tradeId5, LocalDate.now(), LocalDate.now(),
-                "Online", "Online");
-    }
-
-    private void addSixthTrade(){
-        List<Integer> tempTradeItems6 = new ArrayList<>();
-        Integer temp9 = itemManager.addItem("E-Book-2", "Trader1");
-        Integer temp10 = itemManager.addItem("E-Textbook", "Arjun");
-        tempTradeItems6.add(temp9);
-        tempTradeItems6.add(temp10);
-        itemManager.addItemDetails(temp9, "Online", "Its a ebook", 7);
-        itemManager.addItemDetails(temp10, "Online", "Its a textbook", 5);
-        itemManager.changeStatusToUnavailable(temp9);
-        itemManager.changeStatusToUnavailable(temp10);
-        Integer tradeId6 = tradeManager.createTrade("Arjun", "Trader1", "ONLINE-TWOWAY", true, tempTradeItems6);
-        LocalDate tempDate6 = LocalDate.now();
-        traderManager.addNewTrade("Arjun", tradeId6,tempDate6);
-        traderManager.addNewTrade("Trader1", tradeId6, tempDate6);
-        meetingManager.createMeeting(tradeId6, "Arjun", "Trader1", true);
-        meetingManager.setMeetingInfo(tradeId6, LocalDate.now(), LocalDate.now(),
-                "ONLINE", "N/A");
-
-    }
     private void downloadInitial() throws IOException {
         downloadUsers();
         downloadItems();
-        addFirstTrade();
-        addSecondTrade();
-        addThirdTrade();
-        addFourthTrade();
-        addFifthTrade();
-        addSixthTrade();
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("AdminActions", adminActions);

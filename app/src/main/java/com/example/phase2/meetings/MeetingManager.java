@@ -1,6 +1,8 @@
 package com.example.phase2.meetings;
 
 import com.example.phase2.highabstract.Manager;
+import com.example.phase2.trades.TradeManager;
+import com.example.phase2.users.TraderManager;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -56,7 +58,8 @@ public class MeetingManager extends Manager implements Serializable {
     public List<Integer> getOnDeliverMeetings(){
         List<Integer> temp = new ArrayList<>();
         for(int i = 0; i<meetings.size(); i++){
-            if(!getMeeting(i).getDeliverStatus().equals("Completed")){
+            if(!getMeeting(i).getDeliverStatus().equals("Completed") && bothAgreed(i)
+                    && !getMeeting(i).getTradeStatus().equals("Completed")){
                 temp.add(i);
             }
         }
@@ -247,111 +250,7 @@ public class MeetingManager extends Manager implements Serializable {
      * @param id The ID of the meeting that is to be rolled back.
      * @param user The username of the user whose actions are to be undone.
      */
-    public void undoEdit(int id, String user) {
-        Meeting temp = meetings.get(id);
-        assert temp != null;
 
-        temp.setLocation(temp.getLastLocation());
-        temp.setTradeDate(temp.getLastTradeDate());
-        temp.setReturnLocation(temp.getLastReturnLocation());
-        temp.setReturnDate(temp.getLastReturnDate());
-
-        temp.decreaseNumberOfEdits(user);
-        temp.bothDisagree();
-        temp.resetLastInfo();
-    }
-
-    /**
-     * Undoes a user's decision to agree to the trade.
-     * Precondition: The user is involved with the trade of trade ID 'id' and the only user that has
-     * agreed to the trade is the inputted user.
-     * @param id The ID of the meeting in question.
-     * @param user The username of the user in question.
-     */
-    public void undoAgree(int id, String user) {
-        Meeting temp = meetings.get(id);
-        assert temp != null;
-        HashMap<String, Boolean> tempMap = temp.getIsAgreed();
-        tempMap.replace(user, false);
-        temp.setIsAgreed(tempMap);
-    }
-
-    /**
-     * A method that checks if the meeting can be unagreed by the inputted user.
-     * @param id ID of the trade the meeting is attatched to.
-     * @param username The username of the user in question.
-     * @return true, iff the user was the last one to agree to a meeting date and both traders
-     * involved haven't mutually agreed.
-     * */
-    @SuppressWarnings("ConstantConditions")
-    public boolean canUndoAgree(int id, String username){
-        Meeting temp = meetings.get(id);
-        assert temp != null;
-        temp.getIsAgreed().values().size();
-        int counter = 0;
-        for(boolean b: temp.getIsAgreed().values()){
-            if(b){
-                counter+=1;
-            }
-        }
-        if(counter == temp.getIsAgreed().values().size()){
-            return false;
-        }
-        else{
-            return temp.getIsAgreed().get(username);
-        }
-    }
-
-    /**
-     * A method that checks if the meeting can be unconfirmed by the inputted user.
-     * @param id ID of the trade the meeting is attatched to.
-     * @param username The username of the user in question.
-     * @return true, iff the user was the last one to confirm a meeting meeting happened and both
-     * traders involved haven't mutually confirmed.
-     * */
-    @SuppressWarnings("ConstantConditions")
-    public boolean canUndoConfirm(Integer id, String username){
-        Meeting temp = meetings.get(id);
-        assert temp != null;
-        temp.getIsConfirmed().values().size();
-        int counter = 0;
-        for(boolean b: temp.getIsConfirmed().values()){
-            if(b){
-                counter+=1;
-            }
-        }
-        if(counter == temp.getIsConfirmed().values().size()){
-            return false;
-        }
-        else{
-            return temp.getIsConfirmed().get(username);
-        }
-    }
-
-    /**
-     * Undoes a user's decision to confirm the trade.
-     * Precondition: The user is involved with the trade of trade ID 'id' and the only user that has
-     * agreed to the trade is the inputted user.
-     * @param id The ID of the meeting in question.
-     * @param user The username of the user in question.
-     */
-    public void undoConfirm(int id, String user) {
-        Objects.requireNonNull(meetings.get(id)).setConfirm(user,false);
-    }
-
-    /**
-     * Checks whether the meeting with the given id can be undone.
-     * @param id The id of the trade
-     * @return A boolean representing if the meeting can be undone
-     */
-    public boolean meetingCanBeUndone(int id){
-        if(Objects.requireNonNull(meetings.get(id)).isEdited()) {
-            if(Objects.requireNonNull(meetings.get(id)).getCanBeUndone()){
-                return !bothAgreed(id);
-            }
-        }
-        return false;
-    }
 
     /**
      * Returns the meeting's date in string format
