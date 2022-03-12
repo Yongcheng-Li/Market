@@ -184,7 +184,7 @@
     <string name="add_new_item">Add New Item</string>
     <string name="your_wishlist">Your Wishlist</string>
     <string name="select_item_from_wishlist">Please select the item you would like to view</string>
-    <string name="tutorial">Prototype</string>
+    <string name="tutorial">Tutorial</string>
     <string name="invalid_password">Invalid password.</string>
     <string name="cityExample">e.g. Fredericton</string>
     <string name="cannot_propose_new_item_frozen">You cannot propose new item when your account is frozen</string>
