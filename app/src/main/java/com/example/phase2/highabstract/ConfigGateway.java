@@ -129,7 +129,7 @@ public class ConfigGateway {
 
     private void downloadUsers(){
         HashMap<String, Admin> admins = new HashMap<>();
-        admins.put("Admin", new Admin("Admin", "Wordpass", "2022-03-09", true));
+        admins.put("Admin", new Admin("Admin", "123456", "2022-03-09", true));
         adminActions = new AdminActions(admins);
 
         traderManager = new TraderManager(new HashMap<String, Trader>(), 100, 1, 0);
