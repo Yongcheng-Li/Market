@@ -18,6 +18,8 @@ import com.example.phase2.users.TraderManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 public class BrowseItemsActivity extends UpdatableBundleActivity implements ClickableList, Dialogable {
 
     private ItemManager itemManager;
@@ -51,6 +53,14 @@ public class BrowseItemsActivity extends UpdatableBundleActivity implements Clic
         } else {
             openDialog();
         }
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**
@@ -77,6 +87,14 @@ public class BrowseItemsActivity extends UpdatableBundleActivity implements Clic
         }
         setContentView(R.layout.activity_browse_items);
         ListView listView = findViewById(R.id.selectItem);
+
+        listView.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
+
         ArrayAdapter<String> allItemsAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, itemNameList);
         listView.setAdapter(allItemsAdapter);

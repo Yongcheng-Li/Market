@@ -1,6 +1,7 @@
 package com.example.phase2.trader_activities;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import gestures.OnSwipeTouchListener;
 
 public class ViewMyUserInfoActivity extends BundleActivity implements ClickableList {
 
@@ -70,6 +73,14 @@ public class ViewMyUserInfoActivity extends BundleActivity implements ClickableL
                 }
         }
         viewList();
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

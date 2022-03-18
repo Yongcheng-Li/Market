@@ -4,16 +4,21 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.phase2.R;
 import com.example.phase2.highabstract.BundleActivity;
 import com.example.phase2.tutorial_activities.TutorialBrowseItemsActivity;
+
+import gestures.OnSwipeTouchListener;
 
 /**
  * An activity class responsible for providing a tutorial for a trader the Trading System.
  */
 public class TutorialActivity extends BundleActivity {
 
+    //OnSwipeTouchListener onSwipeTouchListener;
     /**
      * Sets up the activity
      * @param savedInstanceState A bundle storing all the necessary objects
@@ -22,6 +27,13 @@ public class TutorialActivity extends BundleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                TutorialActivity.super.onBackPressed();
+            }
+        });
     }
 
     /**

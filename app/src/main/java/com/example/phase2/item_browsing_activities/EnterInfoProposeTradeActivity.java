@@ -20,6 +20,8 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 public class EnterInfoProposeTradeActivity extends BundleActivity {
     private ItemManager itemManager;
     private TradeManager tradeManager;
@@ -57,6 +59,14 @@ public class EnterInfoProposeTradeActivity extends BundleActivity {
         online = bundle.getBoolean("Online");
         viewStart();
         checkOnline();
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

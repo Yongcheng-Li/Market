@@ -9,6 +9,8 @@ import com.example.phase2.R;
 import com.example.phase2.highabstract.BundleActivity;
 import com.example.phase2.users.TraderManager;
 
+import gestures.OnSwipeTouchListener;
+
 /**
  * This class is responsible for changing trader's password.
  */
@@ -26,6 +28,14 @@ public class ChangeTraderPassword extends BundleActivity {
         setContentView(R.layout.activity_change_trader_password);
         tm = (TraderManager) getUseCase(TRADERKEY);
         username = getUsername();
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

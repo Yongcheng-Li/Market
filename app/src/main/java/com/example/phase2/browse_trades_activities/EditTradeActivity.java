@@ -15,9 +15,12 @@ import com.example.phase2.highabstract.UpdatableBundleActivity;
 import com.example.phase2.items.ItemManager;
 import com.example.phase2.meetings.MeetingManager;
 import com.example.phase2.trades.TradeManager;
+import com.example.phase2.tutorial_activities.TutorialBrowseItemsActivity;
 import com.example.phase2.users.TraderManager;
 
 import java.util.Objects;
+
+import gestures.OnSwipeTouchListener;
 
 public class EditTradeActivity extends UpdatableBundleActivity implements Dialogable {
     private TradeManager tradeManager;
@@ -56,6 +59,14 @@ public class EditTradeActivity extends UpdatableBundleActivity implements Dialog
         currentTrader = (String) getUseCase(USERNAMEKEY);
         itemManager = (ItemManager) getUseCase(ITEMKEY);
         updateScreen();
+        //gesture swipe right
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                EditTradeActivity.super.onBackPressed();
+            }
+        });
     }
 
     private void updateScreen(){

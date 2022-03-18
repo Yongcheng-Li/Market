@@ -16,6 +16,8 @@ import com.example.phase2.users.TraderManager;
 
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 public class DeliverItemActivity extends UpdatableBundleActivity implements ClickableList {
 
     private MeetingManager meetingManager;
@@ -33,6 +35,13 @@ public class DeliverItemActivity extends UpdatableBundleActivity implements Clic
         setContentView(R.layout.activity_deliver_trades);
         currentTrader = (String) getUseCase(USERNAMEKEY);
         updateUseCases();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
     /**
      * Updates the Manager classes in the bundle

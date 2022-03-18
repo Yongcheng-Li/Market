@@ -15,6 +15,8 @@ import com.example.phase2.users.TraderManager;
 
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 public class BrowseTradesActivity extends UpdatableBundleActivity implements ClickableList {
 
     private MeetingManager meetingManager;
@@ -32,6 +34,14 @@ public class BrowseTradesActivity extends UpdatableBundleActivity implements Cli
         setContentView(R.layout.activity_browse_trades);
         currentTrader = (String) getUseCase(USERNAMEKEY);
         updateUseCases();
+        //gesture swipe right
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
     /**
      * Updates the Manager classes in the bundle
@@ -47,6 +57,12 @@ public class BrowseTradesActivity extends UpdatableBundleActivity implements Cli
     public void viewList(){
         final List<Integer> onGoingTrades = meetingManager.getOnGoingMeetings(traderManager.getTrades(currentTrader));
         ListView listView = findViewById(R.id.tradesList1);
+        listView.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
         ArrayAdapter<Integer> allTradesAdapter = new ArrayAdapter<>(this,
                android.R.layout.simple_list_item_1, onGoingTrades);
         listView.setAdapter(allTradesAdapter);

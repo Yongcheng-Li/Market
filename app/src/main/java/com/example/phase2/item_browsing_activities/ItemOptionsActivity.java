@@ -15,6 +15,8 @@ import com.example.phase2.users.TraderManager;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import gestures.OnSwipeTouchListener;
+
 public class ItemOptionsActivity extends BundleActivity {
 
     private ItemManager itemManager;
@@ -35,6 +37,13 @@ public class ItemOptionsActivity extends BundleActivity {
         traderManager = (TraderManager) getUseCase(TRADERKEY);
         currentTrader = getUsername();
         viewStart();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

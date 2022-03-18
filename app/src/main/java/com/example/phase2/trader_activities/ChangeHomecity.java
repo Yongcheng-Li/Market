@@ -9,6 +9,8 @@ import com.example.phase2.R;
 import com.example.phase2.highabstract.BundleActivity;
 import com.example.phase2.users.TraderManager;
 
+import gestures.OnSwipeTouchListener;
+
 public class ChangeHomecity extends BundleActivity {
 
     private TraderManager tm;
@@ -24,6 +26,13 @@ public class ChangeHomecity extends BundleActivity {
         setContentView(R.layout.activity_change_homecity);
         tm = (TraderManager) getUseCase(TRADERKEY);
         username = getUsername();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

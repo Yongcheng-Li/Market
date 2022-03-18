@@ -6,14 +6,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.phase2.R;
 import com.example.phase2.items.ItemManager;
 import com.example.phase2.highabstract.BundleActivity;
 import com.example.phase2.highabstract.ClickableList;
+import com.example.phase2.menus.TutorialActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gestures.OnSwipeTouchListener;
 
 /**
  * An activity class responsible for display items for a guest in the tutorial in
@@ -33,6 +37,13 @@ public class TutorialBrowseItemsActivity extends BundleActivity implements Click
         itemManager = (ItemManager) getUseCase(ITEMKEY);
         setContentView(R.layout.activity_tutorial_browse_items);
         viewList();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                TutorialBrowseItemsActivity.super.onBackPressed();
+            }
+        });
     }
 
     /**
@@ -46,6 +57,13 @@ public class TutorialBrowseItemsActivity extends BundleActivity implements Click
             itemNames.add(itemManager.getItemName(id));
         }
         ListView listView = findViewById(R.id.itemsList);
+        listView.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                TutorialBrowseItemsActivity.super.onBackPressed();
+                //Toast.makeText(TutorialBrowseItemsActivity.this, "right", Toast.LENGTH_SHORT).show();
+            }
+        });
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, itemNames);
         listView.setAdapter(itemsAdapter);

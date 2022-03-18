@@ -20,6 +20,8 @@ import com.example.phase2.users.TraderManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 /**
  * An activity class responsible for viewing items in an inventory in the Trading System. (items posted)
  */
@@ -40,6 +42,13 @@ public class EditInventoryActivity extends BundleActivity implements ClickableLi
         traderManager = (TraderManager) getUseCase(TRADERKEY);
         currentTrader = getUsername();
         viewList();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

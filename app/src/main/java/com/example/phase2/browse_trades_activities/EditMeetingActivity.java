@@ -18,6 +18,8 @@ import com.example.phase2.highabstract.BundleActivity;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import gestures.OnSwipeTouchListener;
+
 public class EditMeetingActivity extends BundleActivity {
 
     private DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -56,6 +58,14 @@ public class EditMeetingActivity extends BundleActivity {
         final TextView datePickerText = findViewById(R.id.editTextDate);
         setDatePickerText(datePickerText);
         setButtonLister(button, datePickerText);
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

@@ -21,6 +21,8 @@ import com.example.phase2.users.TraderManager;
 
 import java.util.Objects;
 
+import gestures.OnSwipeTouchListener;
+
 public class DeliverTradeActivity extends UpdatableBundleActivity implements Dialogable {
     private TradeManager tradeManager;
     private MeetingManager meetingManager;
@@ -60,6 +62,13 @@ public class DeliverTradeActivity extends UpdatableBundleActivity implements Dia
         currentTrader = (String) getUseCase(USERNAMEKEY);
         itemManager = (ItemManager) getUseCase(ITEMKEY);
         updateScreen();
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     private void updateScreen(){

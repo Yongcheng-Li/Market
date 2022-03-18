@@ -20,6 +20,8 @@ import com.example.phase2.users.TraderManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import gestures.OnSwipeTouchListener;
+
 public class SelectItemActivity extends BundleActivity implements Dialogable, ClickableList {
 
     private ItemManager itemManager;
@@ -48,6 +50,14 @@ public class SelectItemActivity extends BundleActivity implements Dialogable, Cl
         temporary = bundle.getBoolean("Temporary");
         online = bundle.getBoolean("Online");
         openDialog();
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

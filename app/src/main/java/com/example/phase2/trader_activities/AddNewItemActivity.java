@@ -10,6 +10,8 @@ import com.example.phase2.R;
 import com.example.phase2.items.ItemManager;
 import com.example.phase2.highabstract.BundleActivity;
 
+import gestures.OnSwipeTouchListener;
+
 /**
  * An activity class responsible for adding new items in an inventory in the Trading System.
  */
@@ -27,6 +29,13 @@ public class AddNewItemActivity extends BundleActivity {
         itemManager = (ItemManager) getUseCase(ITEMKEY);
         currentTrader = getUsername();
         setContentView(R.layout.activity_add_new_item);
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**

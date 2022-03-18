@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.phase2.R;
@@ -11,6 +12,8 @@ import com.example.phase2.dialogs.DialogFactory;
 import com.example.phase2.highabstract.BundleActivity;
 import com.example.phase2.highabstract.Dialogable;
 import com.example.phase2.items.ItemManager;
+
+import gestures.OnSwipeTouchListener;
 
 public class DisplayTradeOptionsActivity extends BundleActivity implements Dialogable {
 
@@ -37,6 +40,14 @@ public class DisplayTradeOptionsActivity extends BundleActivity implements Dialo
         DialogFactory dialogFactory = new DialogFactory();
         dialogFragment = dialogFactory.getDialog("TradeType");
         openDialog();
+
+        View view = findViewById(android.R.id.content);
+        view.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                onBackPressed();
+            }
+        });
     }
 
     /**
