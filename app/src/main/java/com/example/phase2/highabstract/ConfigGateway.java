@@ -129,37 +129,158 @@ public class ConfigGateway {
 
     private void downloadUsers(){
         HashMap<String, Admin> admins = new HashMap<>();
-        admins.put("Admin", new Admin("Admin", "123456", "2022-03-09", true));
+        admins.put("Admin", new Admin("Admin", "Wordpass", "2020-07-27", true));
         adminActions = new AdminActions(admins);
 
         traderManager = new TraderManager(new HashMap<String, Trader>(), 100, 1, 0);
+        Trader trader1 = new Trader("Trader1", "Password");
+        trader1.setHomeCity("Fredericton");
+        traderManager.addTrader(trader1);
 
-        traderManager.addTrader(new Trader("Li", "123456"));
-        traderManager.addTrader(new Trader("Yong", "123456"));
-        traderManager.addTrader(new Trader("Cheng", "123456"));
+        traderManager.addTrader(new Trader("Trader2", "Password2"));
+        Trader traderFlagged = new Trader("Lee", "Password3");
+        traderFlagged.setHomeCity("Toronto");
+        traderFlagged.setFlagged(true);
+
+        traderManager.addTrader(traderFlagged);
+        Trader traderUnfreeze = new Trader("Lii", "Password4");
+        traderUnfreeze.setFrozen(true);
+        traderUnfreeze.setRequestToUnfreeze(true);
+        traderManager.addTrader(traderUnfreeze);
+
+
+//        adminActions.newAdmin("Admin2", "Wordpass");
+//        adminActions.newAdmin("Sup", "nothing");
     }
 
     private void downloadItems(){
         HashMap<Integer, Item> tempMap = new HashMap<>();
         itemManager = new ItemManager(tempMap);
 
-        Integer id1 = itemManager.addItem("Bomb", "Cheng");
+        Integer id1 = itemManager.addItem("Bruh", "Lee");
         itemManager.editCategory(id1, "What do you think?");
-        itemManager.editDescription(id1, "boom");
+        itemManager.editDescription(id1, "bruhbruhbruh");
         itemManager.editQualityRating(id1,5);
         itemManager.changeStatusToAvailable(id1);
 
-        Integer id2 = itemManager.addItem("Apple", "Yong");
+        Integer id2 = itemManager.addItem("Apple", "Trader1");
         itemManager.editCategory(id2, "Food");
         itemManager.editDescription(id2, "It's an apple.");
         itemManager.editQualityRating(id2, 8);
         itemManager.changeStatusToAvailable(id2);
     }
 
+    private void addFirstTrade(){
+        meetingManager = new MeetingManager(new HashMap<Integer, Meeting>());
+        tradeManager = new TradeManager(new HashMap<Integer, Trade>());
+        List<Integer> tempTradeItems = new ArrayList<>();
+        tempTradeItems.add(itemManager.addItem("Bike", "Lee"));
+        itemManager.addItemDetails(tempTradeItems.get(0), "Transportation", "Its a bike", 10);
+        itemManager.changeStatusToUnavailable(tempTradeItems.get(0));
+        Integer tradeId = tradeManager.createTrade("Lee", "Trader2", "ONEWAY", true, tempTradeItems);
+        LocalDate tempDate = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId,tempDate);
+        traderManager.addNewTrade("Trader2", tradeId, tempDate);
+        meetingManager.createMeeting(tradeId, "Lee", "Trader2", true);
+        meetingManager.setMeetingInfo(tradeId, LocalDate.now(), LocalDate.now(),
+                "Toronto", "Toronto");
+    }
 
+    private void addSecondTrade(){
+        List<Integer> tempTradeItems2 = new ArrayList<>();
+        Integer temp2 = itemManager.addItem("Jacket", "Trader2");
+        Integer temp3 = itemManager.addItem("Watch", "Lee");
+        tempTradeItems2.add(temp2);
+        tempTradeItems2.add(temp3);
+        itemManager.addItemDetails(temp2, "Clothing", "Its a jacket", 7);
+        itemManager.addItemDetails(temp3, "Accessories", "Its a watch", 5);
+        itemManager.changeStatusToUnavailable(temp2);
+        itemManager.changeStatusToUnavailable(temp3);
+        Integer tradeId2 = tradeManager.createTrade("Lee", "Trader2", "TWOWAY", true, tempTradeItems2);
+        LocalDate tempDate2 = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId2,tempDate2);
+        traderManager.addNewTrade("Trader2", tradeId2, tempDate2);
+        meetingManager.createMeeting(tradeId2, "Lee", "Trader2", true);
+        meetingManager.setMeetingInfo(tradeId2, LocalDate.now(), LocalDate.now(),
+                "Toronto", "Toronto");
+    }
+
+    private void addThirdTrade(){
+        List<Integer> tempTradeItems3 = new ArrayList<>();
+        tempTradeItems3.add(itemManager.addItem("Light", "Arjun"));
+        itemManager.addItemDetails(tempTradeItems3.get(0), "Home", "Its a light", 10);
+        itemManager.changeStatusToUnavailable(tempTradeItems3.get(0));
+        Integer tradeId3 = tradeManager.createTrade("Lee", "Trader1", "ONEWAY", false, tempTradeItems3);
+        LocalDate tempDate3 = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId3,tempDate3);
+        traderManager.addNewTrade("Trader1", tradeId3, tempDate3);
+        meetingManager.createMeeting(tradeId3, "Lee", "Trader1", false);
+        meetingManager.setMeetingInfo(tradeId3, LocalDate.now(), LocalDate.now(),
+                "Toronto", "N/A");
+    }
+
+    private void addFourthTrade(){
+        List<Integer> tempTradeItems4 = new ArrayList<>();
+        Integer temp6 = itemManager.addItem("Laptop", "Trader1");
+        Integer temp7 = itemManager.addItem("Phone", "Lee");
+        tempTradeItems4.add(temp6);
+        tempTradeItems4.add(temp7);
+        itemManager.addItemDetails(temp6, "Technology", "Its a laptop", 7);
+        itemManager.addItemDetails(temp7, "Technology", "Its a Phone", 5);
+        itemManager.changeStatusToUnavailable(temp6);
+        itemManager.changeStatusToUnavailable(temp7);
+        Integer tradeId4 = tradeManager.createTrade("Lee", "Trader1", "TWOWAY", false, tempTradeItems4);
+        LocalDate tempDate4 = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId4,tempDate4);
+        traderManager.addNewTrade("Trader1", tradeId4, tempDate4);
+        meetingManager.createMeeting(tradeId4, "Lee", "Trader1", false);
+        meetingManager.setMeetingInfo(tradeId4, LocalDate.now(), LocalDate.now(),
+                "Toronto", "N/A");
+    }
+
+    private void addFifthTrade(){
+        List<Integer> tempTradeItems5 = new ArrayList<>();
+        Integer temp8 = itemManager.addItem("E-Book", "Trader1");
+        tempTradeItems5.add(temp8);
+        itemManager.changeStatusToUnavailable(temp8);
+        itemManager.addItemDetails(temp8, "Online", "Its an ebook", 10);
+        Integer tradeId5 = tradeManager.createTrade("Lee", "Trader1", "ONLINE-ONEWAY", true, tempTradeItems5);
+        LocalDate tempDate5 = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId5,tempDate5);
+        traderManager.addNewTrade("Trader1", tradeId5, tempDate5);
+        meetingManager.createMeeting(tradeId5, "Lee", "Trader1", true);
+        meetingManager.setMeetingInfo(tradeId5, LocalDate.now(), LocalDate.now(),
+                "Online", "Online");
+    }
+
+    private void addSixthTrade(){
+        List<Integer> tempTradeItems6 = new ArrayList<>();
+        Integer temp9 = itemManager.addItem("E-Book-2", "Trader1");
+        Integer temp10 = itemManager.addItem("E-Textbook", "Lee");
+        tempTradeItems6.add(temp9);
+        tempTradeItems6.add(temp10);
+        itemManager.addItemDetails(temp9, "Online", "Its a ebook", 7);
+        itemManager.addItemDetails(temp10, "Online", "Its a textbook", 5);
+        itemManager.changeStatusToUnavailable(temp9);
+        itemManager.changeStatusToUnavailable(temp10);
+        Integer tradeId6 = tradeManager.createTrade("Lee", "Trader1", "ONLINE-TWOWAY", true, tempTradeItems6);
+        LocalDate tempDate6 = LocalDate.now();
+        traderManager.addNewTrade("Lee", tradeId6,tempDate6);
+        traderManager.addNewTrade("Trader1", tradeId6, tempDate6);
+        meetingManager.createMeeting(tradeId6, "Lee", "Trader1", true);
+        meetingManager.setMeetingInfo(tradeId6, LocalDate.now(), LocalDate.now(),
+                "ONLINE", "N/A");
+
+    }
     private void downloadInitial() throws IOException {
         downloadUsers();
         downloadItems();
+        addFirstTrade();
+        addSecondTrade();
+        addThirdTrade();
+        addFourthTrade();
+        addFifthTrade();
+        addSixthTrade();
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("AdminActions", adminActions);
@@ -171,3 +292,4 @@ public class ConfigGateway {
     }
 
 }
+
