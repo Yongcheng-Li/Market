@@ -15,8 +15,6 @@ public class DialogFactory {
                 return new ApproveDialog();
             case "Freeze":
                 return new FreezeDialog();
-//            case "Undo":
-//                return new UndoDialog();
             case "Unfreeze":
                 return new UnFreezeDialog();
             case"LocationChoice":
