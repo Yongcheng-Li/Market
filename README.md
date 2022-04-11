@@ -5,11 +5,8 @@ Group project for CS2063 Intro to mob dev.
 ## notifications
 * We do not allow changes in usernames, but we do offer password changing functionality
 * There is a functionality to make sure a meeting is only confirmed after the meeting has passed.
-For the TA's convenience we have commented out the code responsible for that in EditTradeActivity to
-make testing the program easier. If desired, the code can be un-commented so that it checks the date.
 * Because there it is very hard to oversee "item security" with online meetings we made it so that a
 trader cannot have a temporary online meeting- All online trades are permanent.
-* We keep controller and presenter together to avoid some unnecessary code smells.
 
 ## DesignPatterns
 ### Dependency Injection
