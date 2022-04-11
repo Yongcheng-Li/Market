@@ -31,7 +31,7 @@ whenever we press the back button in order to update the bundle inside the Bundl
 Initiate an online trade (requires jump back and forth between accounts)
 - Sign up with 2 user accounts
 - Log in and post an item(s)
-- Log in to admin account to approve the items
+- Log in to admin account to approve the items (Admin, pw:12345) UserInfo can be found in ConfigGateway.java
 - Log back to one user account, browse the item posted and initiate a trade.
 - Log in to another user account, accept the trade
 - Edit the trade info (Change dates etc.) and agree on both accounts
