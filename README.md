@@ -44,7 +44,8 @@ Initiate an in-person trade
 - After both agreed, the trade can be made and click on confirm when the trade is done.
 - View user profile to see the past trading information.
 
-Feel free to explore more:) 
+While going back to previous page you can swipe to the right instead of pressing back button.
+And feel free to explore more:) 
 
 
 
