@@ -78,7 +78,6 @@ public class FlaggedAccountsMenu extends BundleActivity implements ClickableList
                     "Fail: the account is already frozen", Toast.LENGTH_SHORT).show();
         }
         viewList();
-
     }
 
     /**
@@ -88,11 +87,10 @@ public class FlaggedAccountsMenu extends BundleActivity implements ClickableList
     public void clickNegative() {
         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
         viewList();
-
     }
 
     /**
-     * Opens the Dialog
+     * Opens the Dialog.
      */
     @Override
     public void openDialog() {

@@ -30,6 +30,7 @@ public class UnFreezeDialog extends AppCompatDialogFragment {
         }
     }
 
+
     /**create the dialog for this fragment
      * @param savedInstanceState the bundle from the activity
      * @return the dialog attached to this fragment
